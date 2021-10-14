@@ -6,17 +6,16 @@
   background-repeat: no-repeat;
   background-size: cover;
 }
-body {
-  overflow-x: hidden;
-}
 
 .banner-title {
+  text-align: center;
   padding-top: 13rem;
   font-size: 3rem;
   color: #452828;
 }
 .banner-form {
   margin-top: 2rem;
+  text-align: center;
 }
 .search-box {
   width: 18rem;
