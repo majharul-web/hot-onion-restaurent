@@ -1,0 +1,50 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.logo {
+  padding: 1rem 0;
+  text-align: start;
+  /* margin-left: 7em; */
+}
+
+.logo-image {
+  width: 25%;
+}
+.menu {
+  padding: 1rem 0;
+}
+
+.menu ul {
+  list-style: none;
+  display: inline-flex;
+}
+.menu ul li a {
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+  margin: 0 25px;
+  font-size: 1rem;
+}
+
+.sing-up-button {
+  background-color: red;
+  padding: 6px 20px;
+  border-radius: 18px;
+  color: white;
+  font-size: 14px;
+  border: none;
+}
+
+/* responsive */
+@media screen and (max-width: 992px) {
+  
+  .logo {
+    text-align: center;
+    padding: 0;
+  }
+  .menu{
+    padding: 0;
+  }
+}
