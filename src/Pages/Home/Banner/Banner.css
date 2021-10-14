@@ -13,6 +13,7 @@ body {
 .banner-title {
   padding-top: 13rem;
   font-size: 3rem;
+  color: #452828;
 }
 .banner-form {
   margin-top: 2rem;
@@ -38,6 +39,9 @@ body {
   position: relative;
   left: -25px;
 }
+.search-button:hover {
+  background-color: #452828;
+}
 
 /* responsive */
 @media screen and (max-width: 768px) {
@@ -55,11 +59,10 @@ body {
     border-radius: 20px 20px;
     font-size: 16px;
   }
-  
+
   .search-button {
     width: 5rem;
     height: 2.5rem;
     font-size: 15px;
-      
   }
 }

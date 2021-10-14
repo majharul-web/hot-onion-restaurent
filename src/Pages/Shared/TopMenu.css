@@ -36,15 +36,17 @@
   font-size: 14px;
   border: none;
 }
+.sing-up-button:hover {
+  background-color: #452828;
+}
 
 /* responsive */
 @media screen and (max-width: 992px) {
-  
   .logo {
     text-align: center;
     padding: 0;
   }
-  .menu{
+  .menu {
     padding: 0;
   }
 }
