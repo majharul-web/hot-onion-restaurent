@@ -3,6 +3,7 @@ import "./Choose.css";
 import choose101 from "../../../images/Image/choose1.png";
 import choose102 from "../../../images/Image/choose2.png";
 import choose103 from "../../../images/Image/choose3.png";
+import icon1 from "../../../images/ICON/firstShip.png";
 
 const Choose = () => {
   return (
@@ -22,7 +23,7 @@ const Choose = () => {
             </div>
             <div className='text-start'>
               <div className='row'>
-                <div className='col-md-3'>
+                <div className='col-md-3 '>
                   <span className='chose-icon mt-4 ms-4'>
                     <i class='fas fa-shipping-fast'></i>
                   </span>
