@@ -3,7 +3,7 @@ import "./Choose.css";
 import choose101 from "../../../images/Image/choose1.png";
 import choose102 from "../../../images/Image/choose2.png";
 import choose103 from "../../../images/Image/choose3.png";
-import icon1 from "../../../images/ICON/firstShip.png";
+
 
 const Choose = () => {
   return (
@@ -19,13 +19,13 @@ const Choose = () => {
           {/*card 4 */}
           <div className='chose-card'>
             <div className=''>
-              <img src={choose101} alt='' className=' img-fluid rounded-3' />
+              <img src={choose101} alt='' className=' img-fluid' />
             </div>
             <div className='text-start'>
               <div className='row'>
                 <div className='col-md-3 '>
                   <span className='chose-icon mt-4 ms-4'>
-                    <i class='fas fa-shipping-fast'></i>
+                    <i className='fas fa-shipping-fast'></i>
                   </span>
                 </div>
                 <div className='col-md-9 py-4'>
@@ -46,7 +46,7 @@ const Choose = () => {
           {/*card 2*/}
           <div className='chose-card'>
             <div className=''>
-              <img src={choose102} alt='' className=' img-fluid rounded-3' />
+              <img src={choose102} alt='' className=' img-fluid' />
             </div>
             <div className='text-start'>
               <div className='row'>
@@ -73,13 +73,13 @@ const Choose = () => {
           {/*card 3 */}
           <div className='chose-card'>
             <div className=''>
-              <img src={choose103} alt='' className=' img-fluid rounded-3' />
+              <img src={choose103} alt='' className=' img-fluid' />
             </div>
             <div className='text-start'>
               <div className='row'>
                 <div className='col-md-3'>
                   <span className='chose-icon mt-4 ms-4'>
-                    <i class='fas fa-caravan'></i>
+                    <i className='fas fa-caravan'></i>
                   </span>
                 </div>
                 <div className='col-md-9 py-4'>
