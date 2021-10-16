@@ -3,6 +3,7 @@ import {
   getAuth,
   signInWithPopup,
   signOut,
+  sendPasswordResetEmail,
   GoogleAuthProvider,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
@@ -27,8 +28,8 @@ const useFirebase = () => {
   };
 
   // user resister
-  const userRegister = (email, pass) => {
-    createUserWithEmailAndPassword(auth, email, pass)
+  const userRegister = (email, password) => {
+    createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
@@ -63,6 +64,12 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
+  // reset password
+  const restPassword = (email) => {
+    sendPasswordResetEmail(auth, email)
+      .then((result) => { })
+  }
+
   // observe user
   useEffect(() => {
     const unsubscribed = onAuthStateChanged(auth, (user) => {
@@ -82,6 +89,7 @@ const useFirebase = () => {
     logOut,
     userRegister,
     userLogin,
+    restPassword,
     isLoading
   };
 };

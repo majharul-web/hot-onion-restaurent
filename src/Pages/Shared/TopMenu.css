@@ -23,8 +23,8 @@
 .menu ul li a {
   text-decoration: none;
   color: black;
-  font-weight: 700;
-  margin: 0 25px;
+  
+  margin-right:  35px;
   font-size: 1rem;
 }
 
