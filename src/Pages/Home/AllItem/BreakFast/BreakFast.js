@@ -5,7 +5,7 @@ const BreakFast = () => {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    fetch("./item.json")
+    fetch("https://raw.githubusercontent.com/majharul-web/hot-onion-restaurent/main/public/item.json")
       .then((res) => res.json())
       .then((data) => setItems(data));
   }, []);

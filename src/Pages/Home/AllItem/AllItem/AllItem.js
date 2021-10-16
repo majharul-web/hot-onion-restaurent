@@ -6,7 +6,7 @@ import Lunch from "../Lunch/Lunch";
 
 const AllItem = () => {
   return (
-    <div className='container my-4'>
+    <div id='allFoods' className='container my-4'>
       <Tabs defaultActiveKey='breakFast' transition={false} id='noanim-tab-example' className='mb-3'>
         <Tab eventKey='breakFast' title='BreakFast'>
           <BreakFast></BreakFast>

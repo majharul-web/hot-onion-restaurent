@@ -7,7 +7,7 @@ import choose103 from "../../../images/Image/choose3.png";
 
 const Choose = () => {
   return (
-    <div className='container my-4'>
+    <div  className='container my-4'>
       <div>
         <h3>Why You Choose Us</h3>
         <p className='mt-4'>

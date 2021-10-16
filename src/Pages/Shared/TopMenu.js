@@ -16,16 +16,16 @@ const TopMenu = () => {
       <div className='menu'>
         <ul>
           <li>
-            <a href='/'>
-              <span>
-                <i className='fas fa-shopping-cart'></i>
-              </span>
-            </a>
+            <Link to='/cart'>
+              <i className='fas fa-shopping-cart'></i>
+            </Link>
           </li>
           <li>
             {user.email ? (
               <Link to='login'>
-                <button onClick={logOut} className='sing-up-button'>Sing Out</button>
+                <button onClick={logOut} className='sing-up-button'>
+                  Sing Out
+                </button>
               </Link>
             ) : (
               <Link to='login'>Sing In</Link>

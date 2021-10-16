@@ -9,6 +9,8 @@ import NotFound from "./Pages/NotFound/NotFound";
 import Login from "./Pages/Login/Login/Login";
 import SingUp from "./Pages/Login/Login/SingUp";
 import AuthProvider from "./context/AuthProvider";
+import SelectedItem from "./Pages/Home/SelectedItem/SelectedItem";
+import Cart from "./Pages/Home/Cart/Cart";
 
 
 function App() {
@@ -24,6 +26,12 @@ function App() {
           </Route>
           <Route exact path='/home'>
             <Home></Home>
+          </Route>
+          <Route path='/item/:itemId'>
+              <SelectedItem></SelectedItem>
+          </Route>
+          <Route exact path='/cart'>
+            <Cart></Cart>
           </Route>
           <Route exact path='/login'>
             <Login></Login>
