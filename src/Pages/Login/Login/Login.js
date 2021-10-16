@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Login.css";
 import logo from "../../../images/logo2.png";
 import useAuth from "../../../hooks/useAuth";
+import { useHistory, useLocation } from "react-router";
 
 const Login = () => {
   // manual login state
@@ -16,17 +17,33 @@ const Login = () => {
     userLogin(email, password);
   };
 
+   // ------------------redirect
+   const location = useLocation();
+   const history = useHistory();
+ 
+   console.log('came from', location.state?.from);
+ 
+   const redirect_url = location.state?.from || "/home";
+ 
+   const handleGoogleSingIN = () => {
+     singInUsingGoogle()
+       .then((result) => {
+         history.push(redirect_url);
+        console.log(result.user);
+       });
+   };
+
   // get email
   const getEmail = (e) => {
-    // console.log(e.target.value);
     setEmail(e.target.value);
   };
 
   // get password
   const getPassword = (e) => {
-    // console.log(e.target.value);
     setPassword(e.target.value);
   };
+
+ 
 
   return (
     <div className='banner-login'>
@@ -56,18 +73,22 @@ const Login = () => {
 
               <h5 className='text-center'>or</h5>
               <div className='d-flex justify-content-evenly flex-wrap'>
-                <button onClick={singInUsingGoogle} className='btn btn-danger '>
+                {/* google sing in */}
+                <button onClick={handleGoogleSingIN} className='btn btn-danger '>
                   <span className='mx-2'>
                     <i className='fab fa-google'></i>
                   </span>
                   Google
                 </button>
+
+                {/* facebook sing in */}
                 <button className='btn btn-primary'>
                   <span className='mx-2'>
                     <i className='fab fa-facebook'></i>
                   </span>
                   Facebook
                 </button>
+
               </div>
             </div>
           </div>

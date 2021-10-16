@@ -4,13 +4,14 @@ import "./App.css";
 import Home from "./Pages/Home/Home/Home";
 import Footer from "./Pages/Shared/Footer";
 import TopMenu from "./Pages/Shared/TopMenu";
-
 import NotFound from "./Pages/NotFound/NotFound";
 import Login from "./Pages/Login/Login/Login";
 import SingUp from "./Pages/Login/Login/SingUp";
 import AuthProvider from "./context/AuthProvider";
 import SelectedItem from "./Pages/Home/SelectedItem/SelectedItem";
 import Cart from "./Pages/Home/Cart/Cart";
+import PrivateRoute from "./Pages/Login/PrivateRoute/PrivateRoute";
+
 
 
 function App() {
@@ -30,9 +31,9 @@ function App() {
           <Route path='/item/:itemId'>
               <SelectedItem></SelectedItem>
           </Route>
-          <Route exact path='/cart'>
+          <PrivateRoute exact path='/cart'>
             <Cart></Cart>
-          </Route>
+          </PrivateRoute>
           <Route exact path='/login'>
             <Login></Login>
           </Route>
