@@ -8,11 +8,14 @@ import TopMenu from "./Pages/Shared/TopMenu";
 import NotFound from "./Pages/NotFound/NotFound";
 import Login from "./Pages/Login/Login/Login";
 import SingUp from "./Pages/Login/Login/SingUp";
+import AuthProvider from "./context/AuthProvider";
+
 
 function App() {
   return (
     <div>
-      <Router>
+     <AuthProvider>
+     <Router>
         <TopMenu />
 
         <Switch>
@@ -35,8 +38,7 @@ function App() {
 
         <Footer />
       </Router>
-
-      <footer></footer>
+     </AuthProvider>
     </div>
   );
 }

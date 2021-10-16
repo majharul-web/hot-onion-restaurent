@@ -1,9 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 import logo from "../../images/logo2.png";
 import "./TopMenu.css";
 
 const TopMenu = () => {
+  const { user, logOut } = useAuth();
   return (
     <nav className='navbar'>
       <div className='logo'>
@@ -21,8 +23,13 @@ const TopMenu = () => {
             </a>
           </li>
           <li>
-            <Link to='login'>Login</Link>
-            {/* <a href='#'>Login</a> */}
+            {user.email ? (
+              <Link to='login'>
+                <button onClick={logOut} className='sing-up-button'>Sing Out</button>
+              </Link>
+            ) : (
+              <Link to='login'>Sing In</Link>
+            )}
           </li>
           <li>
             <Link to='/singUp'>

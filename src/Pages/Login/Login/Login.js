@@ -1,8 +1,10 @@
 import React from "react";
 import "./Login.css";
 import logo from "../../../images/logo2.png";
+import useAuth from "../../../hooks/useAuth";
 
 const Login = () => {
+  const { singInUsingGoogle } = useAuth();
   return (
     <div className='banner-login'>
       <div className='container my-5'>
@@ -22,9 +24,9 @@ const Login = () => {
               </form>
               <h5 className='text-center'>or</h5>
               <div className='d-flex justify-content-evenly flex-wrap'>
-                <button className='btn btn-danger '>
+                <button onClick={singInUsingGoogle} className='btn btn-danger '>
                   <span className='mx-2'>
-                    <i class='fab fa-google'></i>
+                    <i className='fab fa-google'></i>
                   </span>
                   Google
                 </button>

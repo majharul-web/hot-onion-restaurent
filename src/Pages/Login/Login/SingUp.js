@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import logo from "../../../images/logo2.png";
 
 const SingUp = () => {
@@ -20,7 +21,9 @@ const SingUp = () => {
                 <input type='submit' value='Sing Up' className='submit-bg' />
               </form>
 
-              <h6 className='text-center text-danger mt-2'>Already have an account?</h6>
+              <Link to='/login'>
+                <h6 className='text-center text-danger mt-2'>Already have an account?</h6>
+              </Link>
             </div>
           </div>
         </div>
