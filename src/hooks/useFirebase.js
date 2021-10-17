@@ -3,11 +3,13 @@ import {
   getAuth,
   signInWithPopup,
   signOut,
-  sendPasswordResetEmail,
+
   GoogleAuthProvider,
   onAuthStateChanged,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
+  sendEmailVerification,
+  updateProfile
 } from "firebase/auth";
 import initializeAuthentication from "../Pages/Login/Firebase/firebase.init";
 
@@ -28,16 +30,38 @@ const useFirebase = () => {
   };
 
   // user resister
-  const userRegister = (email, password) => {
+  const userRegister = (email, password,name) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
+        verifyEmail();
+        setUserName(name)
+
       })
       .catch((error) => {
         console.log(error.message);
       });
   };
+
+  // verify email
+  const verifyEmail = () => {
+    sendEmailVerification(auth.currentUser)
+      .then(result => {
+        console.log(result);
+      });
+  }
+
+  // set user name
+  const setUserName = (name) => {
+    updateProfile(auth.currentUser, { displayName: name })
+      .then((result) => { }
+      )
+      .catch((error) => {
+        console.log(error.message);
+      });
+  }
+
 
   // user login
   const userLogin = (email, password) => {
@@ -64,11 +88,7 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
-  // reset password
-  const restPassword = (email) => {
-    sendPasswordResetEmail(auth, email)
-      .then((result) => { })
-  }
+
 
   // observe user
   useEffect(() => {
@@ -89,7 +109,6 @@ const useFirebase = () => {
     logOut,
     userRegister,
     userLogin,
-    restPassword,
     isLoading
   };
 };

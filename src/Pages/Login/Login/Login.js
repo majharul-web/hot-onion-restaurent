@@ -3,48 +3,51 @@ import "./Login.css";
 import useAuth from "../../../hooks/useAuth";
 import { useHistory, useLocation } from "react-router";
 
+
 const Login = () => {
   // manual login state
+  const [name, setName] = useState('');
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState('');
   const [feedback, setFeedback] = useState('');
   const [isLogeIn, setIsLogeIn] = useState(false);
 
+
   //login method import
-  const { userRegister, userLogin, restPassword, singInUsingGoogle } = useAuth();
+  const { userRegister, userLogin, singInUsingGoogle, } = useAuth();
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
     // password validation
     if (password.length < 6) {
-      setError('please type 6 or longer password')
+      setError('please type 6 or longer password');
       return;
     }
 
     if (isLogeIn) {
-      userLogin(email, password)
-      setError('')
-      setFeedback('User Login Success! ')
+      userLogin(email, password);
+      setError('');
+      setFeedback('User Login Success! ');
     }
     else {
-      userRegister(email, password);
-      setError('')
-      setFeedback('Registration Done ')
+      userRegister(email, password, name);
+      setError('');
+      setFeedback('Registration Done ');
+
     }
 
 
   };
 
-  // reset pass
-  const restPasswordHandler = (email) => {
-    restPassword(email)
-  }
-
   // handle checked 
   const handleChecked = (e) => {
-    setIsLogeIn(e.target.checked)
+    setIsLogeIn(e.target.checked);
+  }
+  // get name
+  const getName = (e) => {
+    setName(e.target.value);
   }
 
   // get email
@@ -62,7 +65,7 @@ const Login = () => {
   const location = useLocation();
   const history = useHistory();
 
-  console.log("came from", location.state?.from);
+  // console.log("came from", location.state?.from);
 
   const redirect_url = location.state?.from || "/home";
 
@@ -83,7 +86,13 @@ const Login = () => {
               <h3 className='text-center text-success'>{feedback}</h3>
               {/* login form */}
               <form onSubmit={handleFormSubmit}>
-                <h3 className='text-primary mb-2'> {isLogeIn ? 'Please login' : 'Please Register'} </h3>
+                <h3 className='text-danger mb-2 text-center'> {isLogeIn ? 'Please login' : 'Please Register'} </h3>
+
+                {!isLogeIn && <div className="mb-3">
+                  <label htmlFor="exampleInputName" className="form-label">Full Name</label>
+                  <input type="text" onBlur={getName} className="form-control" id="exampleInputName" aria-describedby="nameHelp" placeholder='Enter Your Name' required />
+
+                </div>}
 
                 {/*email field  */}
                 <div className='mb-3'>
@@ -99,9 +108,7 @@ const Login = () => {
                     placeholder='Enter Your Email'
                     required
                   />
-                  <div id='emailHelp' className='form-text'>
-                    We'll never share your email with anyone else.
-                  </div>
+
                 </div>
 
                 {/* password field */}
@@ -122,19 +129,24 @@ const Login = () => {
                 {/* checked button */}
                 <div className="mb-3 form-check">
                   <input type="checkbox" onClick={handleChecked} className="form-check-input" id="exampleCheck1" />
-                  <label className="form-check-label" htmlFor="exampleCheck1">already login</label>
+                  <label className="form-check-label" htmlFor="exampleCheck1"> Already Register</label>
                 </div>
 
                 {/* show error */}
                 <h3 className='text-danger'>{error}</h3>
 
-                <button type="submit" className="btn btn-primary">{isLogeIn ? 'Login' : 'Register'}</button>
 
-                {/* reset password button */}
-                <button type="submit" onClick={restPasswordHandler} className="btn btn-danger btn-sm mx-3">reset password</button>
+
+                <div className="d-grid ">
+                  <button type="submit" className="btn btn-danger btn-lg btn-block">{isLogeIn ? 'Login' : 'Register'}</button>
+
+                </div>
+
               </form>
 
               <h5 className='text-center'>or</h5>
+
+              {/* social login */}
               <div className='d-flex justify-content-evenly flex-wrap'>
                 {/* google sing in */}
                 <button onClick={handleGoogleSingIN} className='btn btn-danger '>

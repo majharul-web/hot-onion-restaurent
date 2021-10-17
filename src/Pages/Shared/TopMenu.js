@@ -29,13 +29,13 @@ const TopMenu = () => {
               </Link>
             ) : (
               <Link to='/login'>
-              <button className='sing-up-button'>Sing up</button></Link>
+                <button className='sing-up-button'>Sing up</button></Link>
             )}
           </li>
           <li>{
-            user?.email && <Link>
+            user?.email && <a href="/">
               Sing In As <span className='fw-bold text-primary'>{user?.displayName}</span>
-            </Link>}
+            </a>}
 
           </li>
         </ul>
